@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soni Kumari | Senior Technical Writer</title>
+  <meta name="description" content="Soni Kumari — Senior Technical Writer with 14+ years in structured DITA documentation and AI-driven documentation automation for healthcare, fintech, and engineering software.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1b2433;
+      --ink-soft: #4a5568;
+      --muted: #718096;
+      --bg: #ffffff;
+      --bg-alt: #f5f7fa;
+      --line: #e2e8f0;
+      --accent: #1f5f8b;
+      --accent-dark: #164766;
+      --accent-soft: #e6f0f7;
+      --radius: 10px;
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Navigation ---------- */
+    header.nav {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .brand { font-weight: 700; color: var(--ink); letter-spacing: 0.2px; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 22px; list-style: none; }
+    .nav-links a { color: var(--ink-soft); font-size: 0.92rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--accent); text-decoration: none; }
+    .nav-toggle { display: none; background: none; border: 0; font-size: 1.5rem; cursor: pointer; color: var(--ink); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      background: linear-gradient(135deg, #f5f9fc 0%, #e6f0f7 100%);
+      border-bottom: 1px solid var(--line);
+      padding: 88px 0 72px;
+    }
+    .hero-grid { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center; }
+    .avatar {
+      width: 148px; height: 148px; border-radius: 50%;
+      background: var(--accent); color: #fff;
+      display: grid; place-items: center;
+      font-family: "Source Serif 4", Georgia, serif; font-size: 3.2rem; font-weight: 700;
+      box-shadow: 0 10px 30px rgba(31, 95, 139, 0.25);
+    }
+    .eyebrow { text-transform: uppercase; letter-spacing: 2px; font-size: 0.78rem; font-weight: 600; color: var(--accent); }
+    .hero h1 {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.15; margin: 6px 0 10px;
+    }
+    .hero .tagline { font-size: 1.15rem; color: var(--ink-soft); max-width: 640px; }
+    .hero-meta { margin-top: 14px; color: var(--muted); font-size: 0.95rem; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .btn {
+      display: inline-block; padding: 11px 22px; border-radius: 8px;
+      font-weight: 600; font-size: 0.95rem; border: 2px solid var(--accent);
+      transition: background 0.15s, color 0.15s;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); text-decoration: none; }
+    .btn-outline { color: var(--accent); background: transparent; }
+    .btn-outline:hover { background: var(--accent-soft); text-decoration: none; }
+
+    /* ---------- Sections ---------- */
+    section { padding: 76px 0; }
+    section.alt { background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .section-head { margin-bottom: 36px; }
+    .section-head .num { color: var(--accent); font-weight: 600; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; }
+    .section-head h2 {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(1.7rem, 3.5vw, 2.2rem); margin-top: 4px;
+    }
+    .section-head p { color: var(--ink-soft); margin-top: 8px; max-width: 720px; }
+    h3 { font-size: 1.12rem; line-height: 1.35; }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; }
+    .about-grid p + p { margin-top: 14px; }
+    .facts { list-style: none; border-left: 3px solid var(--accent); padding-left: 20px; }
+    .facts li { margin-bottom: 12px; }
+    .facts strong { display: block; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 600; }
+
+    /* Stats */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .stat {
+      background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 26px 22px; text-align: center;
+    }
+    .stat .value { font-family: "Source Serif 4", Georgia, serif; font-size: 2.4rem; font-weight: 700; color: var(--accent); line-height: 1.1; }
+    .stat .label { color: var(--ink-soft); font-size: 0.92rem; margin-top: 6px; }
+
+    /* Cards */
+    .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .card {
+      background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 26px; display: flex; flex-direction: column;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .card:hover { box-shadow: 0 10px 26px rgba(27, 36, 51, 0.08); transform: translateY(-2px); }
+    .card p { color: var(--ink-soft); margin-top: 10px; font-size: 0.96rem; }
+    .card .impact { margin-top: auto; padding-top: 16px; font-size: 0.9rem; color: var(--ink); }
+    .card .impact b { color: var(--accent); }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .chip { font-size: 0.78rem; padding: 3px 9px; border: 1px solid var(--line); border-radius: 6px; color: var(--ink-soft); background: var(--bg-alt); }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before { content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+    .role { position: relative; padding-bottom: 38px; }
+    .role:last-child { padding-bottom: 0; }
+    .role::before {
+      content: ""; position: absolute; left: -28px; top: 6px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--bg); border: 3px solid var(--accent);
+    }
+    .role.current::before { background: var(--accent); }
+    .role-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
+    .role-head .dates { color: var(--muted); font-size: 0.9rem; font-weight: 500; white-space: nowrap; }
+    .company { color: var(--accent); font-weight: 600; font-size: 0.97rem; }
+    .role ul { margin: 12px 0 0 18px; color: var(--ink-soft); }
+    .role li { margin-bottom: 7px; }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .skill-group { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+    .skill-group h3 { font-size: 1rem; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+
+    /* Education */
+    .edu { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; align-items: baseline;
+      background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+    .edu p { color: var(--ink-soft); margin-top: 4px; }
+
+    /* Contact */
+    .contact { text-align: center; }
+    .contact .section-head p { margin-left: auto; margin-right: auto; }
+    .contact .cta { justify-content: center; }
+
+    footer { border-top: 1px solid var(--line); padding: 26px 0; text-align: center; color: var(--muted); font-size: 0.88rem; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 720px) {
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none; position: absolute; top: 64px; left: 0; right: 0;
+        flex-direction: column; gap: 0; background: var(--bg); border-bottom: 1px solid var(--line);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { display: block; padding: 14px 24px; }
+      .hero { padding: 56px 0 48px; }
+      .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 24px; }
+      .avatar { margin: 0 auto; width: 116px; height: 116px; font-size: 2.5rem; }
+      .hero .tagline { margin: 0 auto; }
+      .hero .cta { justify-content: center; }
+      .cards, .skills-grid { grid-template-columns: 1fr; }
+      section { padding: 56px 0; }
+    }
+
+    /* ---------- Print ---------- */
+    @media print {
+      header.nav, .cta, .nav-toggle { display: none !important; }
+      .hero, section.alt { background: none; }
+      section { padding: 24px 0; }
+      .card, .stat, .skill-group, .edu { break-inside: avoid; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">Soni <span>Kumari</span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#highlights">Highlights</a></li>
+        <li><a href="#ai-work">AI &amp; Automation</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="container hero-grid">
+        <div class="avatar" aria-hidden="true">SK</div>
+        <div>
+          <div class="eyebrow">Senior Technical Writer</div>
+          <h1>Soni Kumari</h1>
+          <p class="tagline">Structured, topic-based documentation for healthcare, fintech, and engineering software &mdash; and the AI agents that make producing it faster.</p>
+          <p class="hero-meta">Bengaluru, India &nbsp;&middot;&nbsp; 14+ years of experience &nbsp;&middot;&nbsp; DITA &middot; Oxygen &middot; AI automation</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#contact">Get in touch</a>
+            <a class="btn btn-outline" href="https://www.linkedin.com/in/soni-singh-97573112b/" target="_blank" rel="noopener">LinkedIn profile</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 01 About -->
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="num">About</div>
+          <h2>Professional Summary</h2>
+        </div>
+        <div class="about-grid">
+          <div>
+            <p>I am a Senior Technical Writer with more than 14 years of experience producing structured, topic-based documentation using DITA and Oxygen for healthcare, fintech, and engineering software.</p>
+            <p>Alongside authoring, I build AI agents and custom GPTs that automate release-notes generation and publication review &mdash; cutting release-notes cycle time by roughly 85%.</p>
+            <p>I onboard and train technical writers, and serve as the team's go-to point of contact within agile documentation teams.</p>
+          </div>
+          <ul class="facts">
+            <li><strong>Current role</strong>Senior Technical Writer, NextGen Healthcare</li>
+            <li><strong>Location</strong>Bengaluru, India</li>
+            <li><strong>Domains</strong>Healthcare &middot; Fintech &middot; Lending &middot; Aerospace engineering</li>
+            <li><strong>Core focus</strong>DITA authoring, AI-assisted documentation, writer enablement</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Highlights -->
+    <section id="highlights" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <div class="num">Highlights</div>
+          <h2>Career at a Glance</h2>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="value">14+</div><div class="label">Years in technical writing</div></div>
+          <div class="stat"><div class="value">~85%</div><div class="label">Reduction in release-notes cycle time</div></div>
+          <div class="stat"><div class="value">3</div><div class="label">Products documented per release</div></div>
+          <div class="stat"><div class="value">15&ndash;18</div><div class="label">Writer team supported as go-to contact</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 AI & Automation -->
+    <section id="ai-work">
+      <div class="container">
+        <div class="section-head">
+          <div class="num">Featured Work</div>
+          <h2>AI &amp; Documentation Automation</h2>
+          <p>Agents and tools I have built to reduce manual effort and cognitive load across the user-assistance workflow.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <h3>Release Notes Generation Agents</h3>
+            <p>AI agents that generate release-notes first drafts directly from Jira input, replacing days of manual compilation with a short draft-and-validate cycle.</p>
+            <div class="chips"><span class="chip">Atlassian Rovo</span><span class="chip">ChatGPT Enterprise</span><span class="chip">Claude Enterprise</span><span class="chip">Jira</span></div>
+            <p class="impact"><b>Impact:</b> 4&ndash;5 days (32&ndash;40 hrs) reduced to a 15-minute draft plus 4&ndash;5 hrs of validation &mdash; across 4&ndash;5 releases a year for 3 products.</p>
+          </article>
+
+          <article class="card">
+            <h3>PDF Publication Review GPT</h3>
+            <p>A custom GPT that reviews PDF output before SharePoint publication &mdash; flagging spacing and punctuation inconsistencies and screening embedded screenshots for PII.</p>
+            <div class="chips"><span class="chip">Custom GPT</span><span class="chip">SharePoint</span><span class="chip">PII screening</span></div>
+            <p class="impact"><b>Impact:</b> Prevents exposure of test data and patient information; adopted by fellow reviewers as part of the standard review process.</p>
+          </article>
+
+          <article class="card">
+            <h3>DITA Impact Analysis Automation</h3>
+            <p>Converts spec documents and Jira epics into a color-coded Excel report that classifies every DITA-map topic as new, updated, or to-be-removed for the release.</p>
+            <div class="chips"><span class="chip">Claude Enterprise</span><span class="chip">DITA maps</span><span class="chip">Excel</span></div>
+            <p class="impact"><b>Goal:</b> Faster, more reliable release scoping for every writer on the team.</p>
+          </article>
+
+          <article class="card">
+            <h3>Spec &amp; Epic Summarization</h3>
+            <p>Summarizes spec and epic details into briefs published as Confluence pages, helping writers test features in the dev environment before documenting them.</p>
+            <div class="chips"><span class="chip">Claude Enterprise</span><span class="chip">Confluence</span><span class="chip">Jira</span></div>
+            <p class="impact"><b>Goal:</b> Shorter ramp-up on new features and better-informed documentation.</p>
+          </article>
+        </div>
+        <p style="margin-top:26px;color:var(--ink-soft);">These agents were presented at <strong>NextGen's org-wide AI Championship</strong>, demonstrating how automation reduces the cognitive load of drafting release notes for high-volume features and defects while surfacing their customer-facing value.</p>
+      </div>
+    </section>
+
+    <!-- 04 Experience -->
+    <section id="experience" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <div class="num">Experience</div>
+          <h2>Professional Experience</h2>
+        </div>
+        <div class="timeline">
+
+          <div class="role current">
+            <div class="role-head">
+              <h3>Senior Technical Writer</h3>
+              <span class="dates">Oct 2021 &ndash; Present</span>
+            </div>
+            <div class="company">NextGen Healthcare India Pvt. Ltd., Bengaluru</div>
+            <ul>
+              <li>Built AI agents in Atlassian Rovo, ChatGPT Enterprise, and Claude Enterprise that generate release-notes first drafts from Jira, achieving an ~85% cycle-time reduction.</li>
+              <li>Created a custom GPT that reviews PDF output before SharePoint publication, screening for formatting issues and PII; adopted into the standard review process.</li>
+              <li>Prototyping AI-driven impact analysis and spec summarization on Claude Enterprise, now ready for team testing.</li>
+              <li>Presented these AI agents at NextGen's org-wide AI Championship.</li>
+              <li>Author and maintain topic-based DITA content in Oxygen (with Content Fusion, Bitbucket, SourceTree, Jira, and Confluence) for 3 products &mdash; 3&ndash;5 deliverables per product per release, including user guides, configuration guides, release notes, quick-start guides, and day-one impact documents.</li>
+              <li>Applied Oxygen's Positron AI to improve readability and generate short descriptions across 50+ topics.</li>
+              <li>Onboard and train new technical writers, assess readiness before granting production access, and serve as the go-to contact for a 15&ndash;18-writer team.</li>
+            </ul>
+          </div>
+
+          <div class="role">
+            <div class="role-head">
+              <h3>Senior Technical Writer</h3>
+              <span class="dates">Jul 2019 &ndash; Oct 2021</span>
+            </div>
+            <div class="company">Kuliza Technologies India Pvt. Ltd., Bengaluru</div>
+            <ul>
+              <li>Built and maintained a 90&ndash;120-page internal engineering wiki that enabled new-hire onboarding without shadowing.</li>
+              <li>Wrote user guides, installation guides, and release notes for the lend.in lending platform in an agile environment.</li>
+              <li>Partnered with cross-functional teams on requirement gathering, content review, and publishing.</li>
+              <li>Applied BPMN and CMMN notation to understand and document product workflows.</li>
+              <li>Produced daily, weekly, and monthly reporting spreadsheets in Excel.</li>
+            </ul>
+          </div>
+
+          <div class="role">
+            <div class="role-head">
+              <h3>Senior Technical Writer</h3>
+              <span class="dates">Nov 2017 &ndash; Jul 2019</span>
+            </div>
+            <div class="company">Fidelity Information Services India Pvt. Ltd., Bengaluru</div>
+            <ul>
+              <li>Developed user guides and admin guides in AuthorIt for financial-services software, aligned to internal standards and editorial guidelines.</li>
+              <li>Produced financial-domain content within an agile documentation workflow.</li>
+            </ul>
+          </div>
+
+          <div class="role">
+            <div class="role-head">
+              <h3>Senior Technical Writer</h3>
+              <span class="dates">Aug 2014 &ndash; Oct 2017</span>
+            </div>
+            <div class="company">Wipro Limited, Hyderabad &amp; Bengaluru</div>
+            <ul>
+              <li>Authored user guides, admin guides, API guides, and release notes using FrameMaker with DITA for client-facing documentation.</li>
+              <li>Planned documentation against product roadmaps with stakeholders; participated in sprint planning and daily scrums.</li>
+            </ul>
+          </div>
+
+          <div class="role">
+            <div class="role-head">
+              <h3>Technical Author</h3>
+              <span class="dates">Oct 2011 &ndash; Aug 2014</span>
+            </div>
+            <div class="company">Alten India Pvt. Ltd., Bengaluru</div>
+            <ul>
+              <li>Developed user guides, illustrated parts catalogs, maintenance manuals, and service bulletins using SAP PP and Tech Illustrator.</li>
+              <li>Gathered requirements and ran content reviews with Romania-based stakeholders; handled customer-representative feedback and distribution.</li>
+              <li>Worked within regulatory and safety documentation standards.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Skills -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div class="num">Skills</div>
+          <h2>Skills &amp; Tools</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Structured Authoring</h3>
+            <div class="chips"><span class="chip">DITA</span><span class="chip">Oxygen</span><span class="chip">FrameMaker</span><span class="chip">AuthorIt</span><span class="chip">Topic-based content</span></div>
+          </div>
+          <div class="skill-group">
+            <h3>AI &amp; Automation</h3>
+            <div class="chips"><span class="chip">Atlassian Rovo agents</span><span class="chip">ChatGPT Enterprise (custom GPTs)</span><span class="chip">Claude Enterprise</span><span class="chip">Oxygen Positron</span><span class="chip">AI impact analysis</span></div>
+          </div>
+          <div class="skill-group">
+            <h3>Leadership &amp; Communication</h3>
+            <div class="chips"><span class="chip">Writer onboarding &amp; training</span><span class="chip">Readiness assessment</span><span class="chip">Mentoring</span><span class="chip">Technical presentations</span><span class="chip">Cross-functional coordination</span></div>
+          </div>
+          <div class="skill-group">
+            <h3>Collaboration &amp; Content Management</h3>
+            <div class="chips"><span class="chip">Jira</span><span class="chip">Confluence</span><span class="chip">Bitbucket</span><span class="chip">SourceTree</span><span class="chip">Content Fusion</span><span class="chip">SharePoint</span></div>
+          </div>
+          <div class="skill-group">
+            <h3>Graphics &amp; Productivity</h3>
+            <div class="chips"><span class="chip">MS Visio</span><span class="chip">SnagIt</span><span class="chip">MS Office</span></div>
+          </div>
+          <div class="skill-group">
+            <h3>Methods</h3>
+            <div class="chips"><span class="chip">Agile / Scrum</span><span class="chip">BPMN</span><span class="chip">CMMN</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Education -->
+    <section id="education" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <div class="num">Education</div>
+          <h2>Education</h2>
+        </div>
+        <div class="edu">
+          <div>
+            <h3>Aircraft Maintenance Engineering (Mechanical)</h3>
+            <p>Institute of Aeronautics &amp; Engineering, Bhopal, M.P.</p>
+          </div>
+          <span class="dates" style="color:var(--muted);font-weight:500;">Aug 2007 &ndash; May 2011</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 Contact -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="num">Contact</div>
+          <h2>Let's Work Together</h2>
+          <p>Open to conversations about technical writing, structured content, and AI-driven documentation workflows.</p>
+        </div>
+        <div class="cta">
+          <a class="btn btn-primary" href="mailto:singh.sonisingh8@gmail.com">singh.sonisingh8@gmail.com</a>
+          <a class="btn btn-outline" href="https://www.linkedin.com/in/soni-singh-97573112b/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">&copy; <span id="year">2026</span> Soni Kumari &middot; Senior Technical Writer &middot; Bengaluru, India</div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
